@@ -25,9 +25,6 @@ from fraud.fraud_detector import FraudDetector
 from fertilizer.fertilizer_recommender import FertilizerRecommender
 
 
-# ==========================================
-# FASTAPI APPLICATION
-# ==========================================
 
 app = FastAPI(
     title="KisanSetu AI Engine",
@@ -36,9 +33,7 @@ app = FastAPI(
 )
 
 
-# ==========================================
-# AI MODULE INITIALIZATION
-# ==========================================
+
 
 price_predictor = PricePredictor()
 demand_predictor = DemandPredictor()
@@ -52,9 +47,6 @@ fraud_detector = FraudDetector()
 fertilizer_recommender = FertilizerRecommender()
 
 
-# ==========================================
-# HOME
-# ==========================================
 
 @app.get("/")
 def home():
@@ -66,9 +58,7 @@ def home():
     }
 
 
-# ==========================================
-# HEALTH
-# ==========================================
+
 
 @app.get("/health")
 def health():
@@ -78,9 +68,7 @@ def health():
     }
 
 
-# ==========================================
-# PRICE
-# ==========================================
+
 
 @app.post("/ai/price")
 def predict_price(request: PriceRequest):
@@ -96,9 +84,6 @@ def predict_price(request: PriceRequest):
     }
 
 
-# ==========================================
-# DEMAND
-# ==========================================
 
 @app.post("/ai/demand")
 def predict_demand(request: DemandRequest):
@@ -113,9 +98,7 @@ def predict_demand(request: DemandRequest):
     }
 
 
-# ==========================================
-# LOGISTICS
-# ==========================================
+
 
 @app.post("/ai/logistics")
 def optimize_logistics(
@@ -128,9 +111,7 @@ def optimize_logistics(
     )
 
 
-# ==========================================
-# MATCHING
-# ==========================================
+
 
 @app.post("/ai/matching")
 def match_buyers(
@@ -145,9 +126,6 @@ def match_buyers(
     )
 
 
-# ==========================================
-# SUPPLY RISK
-# ==========================================
 
 @app.post("/ai/risk")
 def predict_risk(request: RiskRequest):
@@ -160,9 +138,7 @@ def predict_risk(request: RiskRequest):
     )
 
 
-# ==========================================
-# SHELF LIFE
-# ==========================================
+
 
 @app.post("/ai/shelf-life")
 def predict_shelf_life(
@@ -176,9 +152,7 @@ def predict_shelf_life(
     )
 
 
-# ==========================================
-# WASTE
-# ==========================================
+
 
 @app.post("/ai/waste")
 def predict_waste(
@@ -192,9 +166,7 @@ def predict_waste(
     )
 
 
-# ==========================================
-# QUALITY
-# ==========================================
+
 
 @app.post("/ai/quality")
 def analyze_quality(
@@ -208,9 +180,7 @@ def analyze_quality(
     )
 
 
-# ==========================================
-# FRAUD
-# ==========================================
+
 
 @app.post("/ai/fraud")
 def detect_fraud(
@@ -223,9 +193,7 @@ def detect_fraud(
     )
 
 
-# ==========================================
-# FERTILIZER
-# ==========================================
+
 
 @app.post("/ai/fertilizer")
 def recommend_fertilizer(
